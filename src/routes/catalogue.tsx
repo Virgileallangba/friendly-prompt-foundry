@@ -5,7 +5,7 @@ import { CATEGORY_LABELS, PRODUCTS, searchProducts, parseQuery, type Category } 
 type S = { q?: string | undefined; cat?: Category | undefined; brand?: string | undefined; max?: number | undefined; sort?: "price" | "savings" | "relevance" | undefined };
 
 export const Route = createFileRoute("/catalogue")({
-  validateSearch: (s: Record<string, any>): S => ({
+  validateSearch: (s: any): S => ({
     q: typeof s.q === "string" ? s.q : undefined,
     cat: ["pc", "camera", "handheld"].includes(s.cat as string) ? (s.cat as Category) : undefined,
     brand: typeof s.brand === "string" ? s.brand : undefined,
