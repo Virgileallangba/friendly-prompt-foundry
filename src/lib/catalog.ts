@@ -117,7 +117,7 @@ export function parseQuery(q: string) {
   return { maxPrice, category, terms };
 }
 
-export function searchProducts(q: string, opts: { category?: Category; brand?: string; maxPrice?: number; sort?: "price" | "savings" | "relevance" } = {}) {
+export function searchProducts(q: string, opts: { category?: Category | undefined; brand?: string | undefined; maxPrice?: number | undefined; sort?: "price" | "savings" | "relevance" | undefined } = {}) {
   const parsed = parseQuery(q);
   const cat = opts.category ?? parsed.category;
   const max = opts.maxPrice ?? parsed.maxPrice;
