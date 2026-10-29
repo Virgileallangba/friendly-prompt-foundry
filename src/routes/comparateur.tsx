@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { PRODUCTS, getProduct, bestPrice, savings, type Product } from "@/lib/catalog";
 
 export const Route = createFileRoute("/comparateur")({
-  validateSearch: (s: Record<string, unknown>): { ids?: string | undefined } => ({ ids: typeof s.ids === "string" ? s.ids : undefined }),
+  validateSearch: (s: Record<string, any>): { ids?: string | undefined } => ({ ids: typeof s.ids === "string" ? s.ids : undefined }),
   head: () => ({
     meta: [
       { title: "Comparateur — TECH REPLAY" },
