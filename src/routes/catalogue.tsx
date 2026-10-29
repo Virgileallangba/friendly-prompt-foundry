@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Page, SearchBar, ProductCard } from "@/components/site";
 import { CATEGORY_LABELS, PRODUCTS, searchProducts, parseQuery, type Category } from "@/lib/catalog";
 
-type S = { q?: string; cat?: Category; brand?: string; max?: number; sort?: "price" | "savings" | "relevance" };
+type S = { q?: string | undefined; cat?: Category | undefined; brand?: string | undefined; max?: number | undefined; sort?: "price" | "savings" | "relevance" | undefined };
 
 export const Route = createFileRoute("/catalogue")({
   validateSearch: (s: Record<string, unknown>): S => ({
