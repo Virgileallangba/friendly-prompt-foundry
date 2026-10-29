@@ -31,8 +31,8 @@ export interface Listing {
   sellerType: "Pro" | "Particulier";
   verified: boolean;
   location: string;
-  warranty?: string;
-  accessories?: string[];
+  warranty?: string | undefined;
+  accessories?: string[] | undefined;
   listedAt: string;
   demo: true; // annonces de démonstration — jamais présentées comme réelles
 }
@@ -81,12 +81,12 @@ export const LISTINGS: Listing[] = PRODUCTS.flatMap((prod, i) =>
     return {
       id: `${prod.id}-${k}`,
       productId: prod.id,
-      price: Math.round(prod.newPrice * RATIO[n % RATIO.length]),
-      condition: CONDS[n % CONDS.length],
+      price: Math.round(prod.newPrice * RATIO[n % RATIO.length]!),
+      condition: CONDS[n % CONDS.length]!,
       seller: k ? "Vendeur démo" : "Boutique démo",
       sellerType: k ? "Particulier" : "Pro",
       verified: false,
-      location: CITIES[n % CITIES.length],
+      location: CITIES[n % CITIES.length]!,
       warranty: k ? undefined : "6 mois",
       accessories: prod.category === "camera" ? (k ? ["Batterie", "Chargeur"] : ["2 batteries", "Caisson étanche", "Carte 128 Go"]) : undefined,
       listedAt: `2026-10-${String(10 + (n % 18)).padStart(2, "0")}`,
